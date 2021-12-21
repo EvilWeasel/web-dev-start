@@ -9,7 +9,8 @@
     Dictionary<string, string> errors = new Dictionary<string, string>()
 {
 {"Name" ,"" },
-{ "Alter","" }
+{ "Alter","" },
+{"DB_ERROR","" }
 };
     //if(!string.IsNullOrEmpty(Request["name"]))
     string name = "";
@@ -60,6 +61,10 @@
             using (HamsterDB db = new HamsterDB())
             {
                 ok = db.InsertHamster(h);
+                if (!ok)
+                {
+                    errors["DB_ERROR"] = "Fehler beim Erstellen des Datensatzes.";
+                }
             }
         }
 
@@ -136,6 +141,7 @@
                     <input type="reset" value="Löschen" />
                 </div>
             </form>
+            <div class="error">@errors["DB_ERROR"]</div>
         }
         else
         {
