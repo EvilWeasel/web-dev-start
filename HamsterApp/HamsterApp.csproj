@@ -92,6 +92,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Hamster.cs" />
+    <Compile Include="HamsterDB.cs" />
     <Compile Include="HamsterHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
