@@ -1,0 +1,43 @@
+﻿body {
+    font-family: Consolas;
+}
+
+ul {
+    list-style-type: none;
+}
+
+    ul li {
+        display: inline-block;
+        width: 100px;
+        background-color: dodgerblue;
+        color: white;
+        font-size: 24px;
+    }
+
+        ul li:hover {
+            background-color: yellow;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+.aktuell {
+    background-color: red;
+}
+
+.ctrlgroup{
+    margin: 5px 3px 5px 3px;
+    padding: 5px;
+}
+
+.ctrl label{
+    display: inline-block;
+    width: 100px;
+}
+
+.error{
+    color:red;
+
+}

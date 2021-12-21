@@ -1,0 +1,147 @@
+﻿@{
+
+
+
+    Dictionary<string, string> errors = new Dictionary<string, string>()
+{
+{"Name" ,"" },
+{ "Alter","" }
+};
+    //if(!string.IsNullOrEmpty(Request["name"]))
+    string name = "";
+    int alter = 1;
+    string farbe = "";
+    string geschlecht = "";
+    bool ok = false;
+    if (this.IsPost)
+    {
+        ok = true;
+        name = Request["name"];
+        bool errorAlter = int.TryParse(Request["alter"], out alter);
+        farbe = Request["farbe"];
+        geschlecht = Request["geschlecht"];
+
+
+
+        if (name == "")
+        {
+            errors["Name"] = "Name darf nicht leer sein";
+            ok = false;
+        }
+        if (!errorAlter)
+        {
+            errors["Alter"] = "Alter muss zwischen 0 und 730 sein";
+            ok = false;
+        }
+        else if (alter < 1)
+        {
+            errors["Alter"] = "Alter darf nicht kleiner als 1 sein";
+            ok = false;
+        }
+        else if (alter >= 730)
+        {
+            errors["Alter"] = "Alter darf nicht größer als 730 sein";
+            ok = false;
+        }
+
+
+
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HamsterApp Eingabe</title>
+    <link href="~/hamsterstyle.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Hamster-App</h1>
+    <h3>Eingabe</h3>
+    @Html.Raw(HamsterApp.HamsterHelper.CreateMenu(2))
+    <div>
+        @if (!ok)
+        {
+
+            <form method="post">
+                <!-- -->
+                <div class="ctrlgroup">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Horst" value="@name" />
+                    <div class="error">@errors["Name"]</div>
+                </div>
+
+
+
+                <div class="ctrlgroup">
+                    <label for="geschlecht">Geschlecht</label>
+                    <select id="geschlecht" name="geschlecht">
+                        @{
+                            string select0 = "";
+                            string select1 = "";
+                            string select2 = "";
+                        }
+                        @switch (geschlecht)
+                        {
+                            case "unbekannt":
+                                select0 = "selected";
+                                break;
+                            case "weiblich":
+                                select1 = "selected";
+                                break;
+                            case "maennlich":
+                                select2 = "selected";
+                                break;
+                            default:
+                                break;
+                        }
+                        <option value="unbekannt" @select0>Unbekannt</option>
+                        <option value="weiblich" @select1>Weiblich</option>
+                        <option value="maennlich" @select2>Männlich</option>
+                    </select>
+                </div>
+                @{
+                    string[] farben = { "blau", "grün", "rot", "braun", "schwarz" };
+                }
+                <div class="ctrlgroup">
+                    <label for="farbe">Farbe</label>
+                    <select id="farbe" name="farbe">
+                        @foreach (string f in farben)
+                        {
+                            if (f == farbe)
+                            {
+                                <option value="@f" selected>@f</option>
+                            }
+                            else
+                            {
+                                <option value="@f">@f</option>
+                            }
+                        }
+                    </select>
+                </div>
+
+
+
+                <div class="ctrlgroup">
+                    <label for="alter">Alter</label>
+                    <input type="number" id="alter" name="alter" value="@alter" />
+                    <div class="error">@errors["Alter"]</div>
+                </div>
+
+
+
+                <div class="ctrlgroup">
+                    <input type="submit" value="Speichern" />
+                    <input type="reset" value="Löschen" />
+                </div>
+            </form>
+
+        }
+        else
+        {
+            <p>DATEN WURDEN GESPEICHERT</p>
+        }
+
+
+    </div>
+</body>
+</html>

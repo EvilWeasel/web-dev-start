@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>HamsterApp Info</title>
+    <link rel="stylesheet" href="~/hamsterstyle.css" type="text/css" />
+</head>
+<body>
+    <div>
+        <h1>Hamster-App</h1>
+        <h3>Hier können Sie ihre Hamster verwalten</h3>
+        @Html.Raw(HamsterApp.HamsterHelper.CreateMenu(4))
+    </div>
+    <div>
+        <p>NO HELP AVAILABLE!</p>
+    </div>
+</body>
+</html>

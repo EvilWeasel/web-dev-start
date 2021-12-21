@@ -1,0 +1,26 @@
+﻿@{ 
+    string user = Request["username"];
+    string pw = Request["password"];
+
+    if (user != "horst")
+    {
+        Response.Redirect("https://www.gidf.at/");
+    }
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <h1>GLÜCKWUNSCH</h1>
+    <h1>GLÜCKWUNSCH</h1>
+    <h4>Username: @user</h4>
+    <h4>Password: @pw</h4>
+
+    <a href="~/Seite02.html">Zurück</a>
+</body>
+</html>

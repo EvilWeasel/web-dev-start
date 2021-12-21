@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.31911.260
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Start", "Start\Start.csproj", "{2D2806BA-4ADC-4085-94BF-D2492D3C3832}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HamsterApp", "HamsterApp\HamsterApp.csproj", "{AF72D5E5-66A0-4DA4-962D-309B76B3987B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D2806BA-4ADC-4085-94BF-D2492D3C3832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D2806BA-4ADC-4085-94BF-D2492D3C3832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D2806BA-4ADC-4085-94BF-D2492D3C3832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D2806BA-4ADC-4085-94BF-D2492D3C3832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF72D5E5-66A0-4DA4-962D-309B76B3987B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF72D5E5-66A0-4DA4-962D-309B76B3987B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF72D5E5-66A0-4DA4-962D-309B76B3987B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF72D5E5-66A0-4DA4-962D-309B76B3987B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1EE289E5-5D19-4DB3-B269-0D3ACF5E41D4}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,30 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>HamsterApp Home</title>
+    <link rel="stylesheet" href="~/hamsterstyle.css" type="text/css"/>
+</head>
+<body>
+    <div>
+        <h1>Hamster-App</h1>
+        <h3>Hier können Sie ihre Hamster verwalten</h3>
+        @*<ul>
+            <li><a href="index.cshtml">Start</a></li>
+            <li><a href="info.cshtml">Info</a></li>
+            <li><a href="eingabe.cshtml">Eingabe</a></li>
+            <li><a href="anzeigen.cshtml">Anzeigen</a></li>
+            <li><a href="hilfe.cshtml">Hilfe</a></li>
+        </ul>*@
+        @*@HamsterApp.HamsterHelper.CreateMenu(0);*@
+        @Html.Raw(HamsterApp.HamsterHelper.CreateMenu(0))
+    </div>
+    <div>
+        <p>Das ist unsere erste App mit ASP, HTML, CSS, und Hamster#</p>
+        <p>Wir möchten noch erwähnen, dass kein Hamster Homikron hat und alle Hamster geboostert sind.</p>
+    </div>
+</body>
+</html>
