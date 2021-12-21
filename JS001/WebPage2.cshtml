@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body onload="main()">
+
+
+    <pre id="ausgabe">
+
+
+
+</pre>
+    <script>
+        function writeline(text) {
+            ausgabe.innerHTML += text + "\n"
+        }
+
+        function test01() {
+            var x = 10
+            writeline(x + ":" + typeof (x))
+            x = 10.0
+            writeline(x + ":" + typeof (x))
+            x = true
+            writeline(x + ":" + typeof (x))
+            x = "10"
+            writeline(x + ":" + typeof (x))
+            x = function () { }
+            writeline(x + ":" + typeof (x))
+
+            // JSON JavaScriptObjectNotation
+            x = {
+                "Alter": 99, "Name": "Horst", "Farbe": "Blau", "toString": function () { return this.Alter + ", " + this.Name + ", " + this.Farbe } }
+            writeline(x + ":" + typeof (x))
+            x = 42
+
+            writeline(x.toString())
+        }
+        function test02() {
+            var x = 10
+            var y = "10"
+            // Spielverderber!!!
+
+            if (x == y) {
+                writeline("SUPER: x==y")
+            }
+            else {
+                writeline("MEH: x!=y")
+            }
+            if (x === y) {
+                writeline("SUPER: x===y")
+            }
+            else {
+                writeline("MEH: x!=y")
+            }
+            if (x !== y) {
+                writeline("MEH: x!==y")
+            }
+
+        }
+        function test03() {
+            var x = 10
+            var y = "10"
+            var z = x + y
+            var w = y + x
+            var v = parseInt(y) + parseInt(x)
+            var u = parseFloat(y) + parseFloat(x)
+
+            writeline("Z:" + z)
+            writeline("W:" + w)
+            writeline("U:" + u)
+            writeline("V:" + v)
+
+        }
+        function main() {
+            test01()
+            test02()
+            test03()
+        }
+    </script>
+
+</body>
+</html>

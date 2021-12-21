@@ -98,7 +98,8 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <None Include="WebPage1.cshtml" />
+    <Content Include="WebPage1.cshtml" />
+    <Content Include="WebPage2.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

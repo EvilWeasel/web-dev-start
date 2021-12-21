@@ -3,7 +3,85 @@
 <head>
     <title></title>
 </head>
-<body>
+<body onload="party()">
+    <h1>Javascript</h1>
+    <h3>ICH SITZE AUCH AN EINEM PC</h3>
+    <button onclick="test01()">Test1</button>
+    <br />
+    <input type="button" style="display:inline-block; position:absolute" value="Test2" onclick="alert('Hallo'); test02();" />
+    <br />
+    <div id="ausgabe01"></div>
+    <br />
+    <input type="text" id="ein01" on/>
+    <input type="button" style="display:inline-block; position:absolute" value="Check" onclick="check()" />
+
+
+    <script type="text/javascript">
+        //for (var i = 0; i < 10; i++) {
+        //    document.write("Das ist eine Zahl " + i + "<br />")
+        //}
+
+        function test01() {
+
+
+            var divAusgabe01 = document.getElementById("ausgabe01")
+
+            divAusgabe01.innerHTML = "Hallo Welt..."
+
+        }
+
+        function test02() {
+
+
+            ausgabe01.innerHTML = "Test 02 wurde geklickt"
+
+        }
+
+        function check() {
+            let txt = ein01.value
+            if (txt == "1") {
+                ausgabe01.innerHTML = "streber!"
+            }
+            else if (txt >= 2 && txt <= 5) {
+                ausgabe01.innerHTML = "Geht so"
+            }
+            else {
+                ausgabe01.innerHTML = "DURCHGEFALLEN"
+            }
+            if (ausgabe01.style.color == "red") {
+                ausgabe01.style.color = "green"
+
+            }
+            else {
+                ausgabe01.style.color = "red"
+            }
+        }
+
+        function party() {
+            var p = 10
+            var f1 = function () {
+
+                if (bdy.style.backgroundColor == "black") {
+                    bdy.style.backgroundColor = "#888"
+                }
+                else {
+                    bdy.style.backgroundColor = "black"
+                }
+                for (var i = 0; i < document.getElementsByTagName("input").length; i++) {
+                    var elem = document.getElementsByTagName("input")[i]
+                    elem.style.position = "absolute"
+                    elem.style.backgroundColor = "yellow"
+                    elem.style.left = p + "px"
+                    alert("TEST: " + p)
+                    p += 10
+                }
+            }
+            var bdy = document.getElementsByTagName("body")[0]
+            var hndl1 = setInterval(f1, 1000)
+            
+            setTimeout(function () {clearInterval(hndl1)}, 10000)
+        }
+    </script>
 
 </body>
 </html>

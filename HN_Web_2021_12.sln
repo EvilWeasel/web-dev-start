@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Start", "Start\Start.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HamsterApp", "HamsterApp\HamsterApp.csproj", "{AF72D5E5-66A0-4DA4-962D-309B76B3987B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{801C3281-DFD3-4D59-B014-C7846B0C3D75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JS001", "JS001\JS001.csproj", "{EB2EE34D-461F-4F4C-96E1-57196481200D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{AF72D5E5-66A0-4DA4-962D-309B76B3987B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF72D5E5-66A0-4DA4-962D-309B76B3987B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF72D5E5-66A0-4DA4-962D-309B76B3987B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{801C3281-DFD3-4D59-B014-C7846B0C3D75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{801C3281-DFD3-4D59-B014-C7846B0C3D75}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{801C3281-DFD3-4D59-B014-C7846B0C3D75}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{801C3281-DFD3-4D59-B014-C7846B0C3D75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB2EE34D-461F-4F4C-96E1-57196481200D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB2EE34D-461F-4F4C-96E1-57196481200D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB2EE34D-461F-4F4C-96E1-57196481200D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB2EE34D-461F-4F4C-96E1-57196481200D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
