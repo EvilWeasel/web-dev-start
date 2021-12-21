@@ -55,5 +55,12 @@ namespace HamsterApp
             h.Geschlecht = (Geschlecht)reader["Geschlecht"];
             return h;
         }
+
+        public static void CreateSqlDeleteCommand(SqlCommand cmd, int id)
+        {
+            string sql = @"delete from tblHamster where Id = @Id";
+            cmd.CommandText = sql;
+            cmd.Parameters.AddWithValue("@Id", id);
+        }
     }
 }

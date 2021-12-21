@@ -20,26 +20,30 @@
         @Html.Raw(HamsterApp.HamsterHelper.CreateMenu(3))
     </div>
     <div>
-        <table>
-            <thead>
-                <tr>Id</tr>
-                <tr>Name</tr>
-                <tr>Alter</tr>
-                <tr>Farbe</tr>
-                <tr>Geschlecht</tr>
-            </thead>
-            @foreach (Hamster h in hliste)
-            {
-                <tr>
-                    <td>@h.Id</td>
-                    <td>@h.Name</td>
-                    <td>@h.Alter</td>
-                    <td>@h.Farbe</td>
-                    <td>@h.Geschlecht</td>
-                </tr>
-            }
+        <form action="hamsterloeschen.cshtml" method="get">
 
-        </table>
+            <table>
+                <thead>
+                    <tr>Id</tr>
+                    <tr>Name</tr>
+                    <tr>Alter</tr>
+                    <tr>Farbe</tr>
+                    <tr>Geschlecht</tr>
+                </thead>
+                @foreach (Hamster h in hliste)
+                {
+                    <tr>
+                        <td>@h.Id</td>
+                        <td>@h.Name</td>
+                        <td>@h.Alter</td>
+                        <td>@h.Farbe</td>
+                        <td>@h.Geschlecht</td>
+                        <td><input type="submit" name="hamster_@h.Id" value="Löschen"></input></td>
+                    </tr>
+                }
+
+            </table>
+        </form>
     </div>
 </body>
 </html>

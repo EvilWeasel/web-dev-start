@@ -1,0 +1,17 @@
+﻿@using HamsterApp;
+@{
+
+
+
+    var qs = Request.QueryString;
+    if (qs.HasKeys())
+    {
+        string key = qs.GetKey(0);
+        int id = int.Parse(key.Substring(8));
+        using (HamsterDB db = new HamsterDB())
+        {
+            db.DeleteHamster(id);
+        }
+        Response.Redirect("~/anzeigen.cshtml");
+    }
+}

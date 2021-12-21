@@ -60,6 +60,26 @@ namespace HamsterApp
             }
         }
 
+        public bool DeleteHamster(int id)
+        {
+            try
+            {
+                Connection.Open();
+                SqlCommand c = new SqlCommand();
+                c.Connection = Connection;
+                Hamster.CreateSqlDeleteCommand(c, id);
+                c.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                Connection?.Close();
+            }
+        }
 
 
 

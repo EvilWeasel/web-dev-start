@@ -103,6 +103,7 @@
     <Content Include="anzeigen.cshtml" />
     <Content Include="eingabe.cshtml" />
     <Content Include="hilfe.cshtml" />
+    <Content Include="hamsterloeschen.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
