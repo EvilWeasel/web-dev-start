@@ -38,5 +38,22 @@ namespace HamsterApp
             cmd.Parameters.AddWithValue("@Geschlecht", Geschlecht);
 
         }
+        public static void CreateSqlSelectCommand(SqlCommand cmd)
+        {
+            string sql = @"SELECT Id, Name, Farbe, [Alter], Geschlecht FROM TblHamster";
+            cmd.CommandText = sql;
+
+        }
+
+        public static Hamster CreateHamster(SqlDataReader reader)
+        {
+            Hamster h = new Hamster();
+            h.Id = (int)reader["Id"];
+            h.Name = (string)reader["Name"];
+            h.Alter = (int)reader["Alter"];
+            h.Farbe = (Farbe)reader["Farbe"];
+            h.Geschlecht = (Geschlecht)reader["Geschlecht"];
+            return h;
+        }
     }
 }

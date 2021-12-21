@@ -41,3 +41,20 @@ ul {
     color:red;
 
 }
+
+table{
+    border-collapse: collapse;
+}
+
+td, th{
+    border: 1px solid black;
+    padding: 5px;
+}
+
+tr:nth-child(0){
+    background-color: black;
+    color: white;
+}
+tr:nth-child(2n) {
+    background-color: aquamarine;
+}

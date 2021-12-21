@@ -1,4 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@using HamsterApp;
+@{
+    List<Hamster> hliste = new List<Hamster>();
+    using (HamsterDB db = new HamsterDB())
+    {
+        hliste.AddRange(db.GetHamster());
+    }
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <title>HamsterApp Info</title>
@@ -11,7 +20,26 @@
         @Html.Raw(HamsterApp.HamsterHelper.CreateMenu(3))
     </div>
     <div>
-        <p>Hier kommt eine schicke Hamsterliste...</p>
+        <table>
+            <thead>
+                <tr>Id</tr>
+                <tr>Name</tr>
+                <tr>Alter</tr>
+                <tr>Farbe</tr>
+                <tr>Geschlecht</tr>
+            </thead>
+            @foreach (Hamster h in hliste)
+            {
+                <tr>
+                    <td>@h.Id</td>
+                    <td>@h.Name</td>
+                    <td>@h.Alter</td>
+                    <td>@h.Farbe</td>
+                    <td>@h.Geschlecht</td>
+                </tr>
+            }
+
+        </table>
     </div>
 </body>
 </html>
