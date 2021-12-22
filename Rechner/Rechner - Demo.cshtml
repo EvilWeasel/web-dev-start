@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Rechner</title>
+</head>
+<body>
+    <input id="eingabe" type="text" />
+    <button onclick="calc()">Calc</button>
+    <input id="result" type="text" readonly />
+    <script>
+        function calc() {
+            result.value = eval(eingabe.value)
+        }
+    </script>
+</body>
+</html>
