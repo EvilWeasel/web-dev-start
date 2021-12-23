@@ -18,11 +18,11 @@ namespace JS001
     {
         public static IEnumerable<Hamster> GetHamster()
         {
-            yield return new Hamster() { Id = 1, Name = "Horst", Alter = 1, Farbe = "Grün", Geschlecht = "m" };
-            yield return new Hamster() { Id = 2, Name = "Winfried", Alter = 16, Farbe = "Gelb", Geschlecht = "m" };
-            yield return new Hamster() { Id = 3, Name = "Hans", Alter = 2, Farbe = "Weiß", Geschlecht = "w" };
-            yield return new Hamster() { Id = 4, Name = "Angela", Alter = 3, Farbe = "Grün", Geschlecht = "w" };
-            yield return new Hamster() { Id = 5, Name = "Angela", Alter = 3, Farbe = "Grün", Geschlecht = "w" };
+            yield return new Hamster() { Id = 1, Name = "Horst", Alter = 1, Farbe = "gelb", Geschlecht = "m" };
+            yield return new Hamster() { Id = 2, Name = "Winfried", Alter = 16, Farbe = "grün", Geschlecht = "m" };
+            yield return new Hamster() { Id = 3, Name = "Friedrich", Alter = 2, Farbe = "blau", Geschlecht = "w" };
+            yield return new Hamster() { Id = 4, Name = "Angela", Alter = 3, Farbe = "grau", Geschlecht = "w" };
+            yield return new Hamster() { Id = 5, Name = "Angelo", Alter = 6, Farbe = "braun", Geschlecht = "m" };
         }
     }
 }

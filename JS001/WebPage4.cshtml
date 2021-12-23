@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>AJAX</title>
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <h1>AJAX</h1>
@@ -12,6 +13,14 @@
     <button id="laden02">Lade JSON</button>
     <input type="number" id="nr02" max="5" min="1" value="1" />
     <div id="daten02"></div>
+    <br />
+
+    <button id="lade_hliste">Lade Hamsterliste</button>
+    <div id="table_hliste">
+
+    </div>
+
+
 
     <script>
 
@@ -19,9 +28,26 @@
 
             var dat01 = document.getElementById("daten01")
             var lad01 = document.getElementById("laden01")
+
             var dat02 = document.getElementById("daten02")
             var lad02 = document.getElementById("laden02")
             var nr02 = document.getElementById("nr02")
+
+            var ladhlist = document.getElementById("lade_hliste")
+            var div_hliste = document.getElementById("table_hliste")
+
+            var clr_mapper = {
+                "schwarz": "black",
+                "blau": "blue",
+                "gelb": "yellow",
+                "grau": "grey",
+                "braun": "#5e321a",
+                "grün": "green"
+            }
+            var gen_mapper = {
+                "m": "lightblue",
+                "w": "lightpink"
+            }
             // dat01.innerHTML = "STARTUP"
             //var text = document.createTextNode("Start")
             //dat01.appendChild(text)
@@ -77,6 +103,44 @@
                 }
                 xreq.send()
             })
+
+            ladhlist.addEventListener("click", function () {
+                let xreq = new XMLHttpRequest()
+                xreq.open("get", "GetAllTheHamsterz.cshtml", true)
+                xreq.onreadystatechange = function () {
+                    if (xreq.readyState == 4) {
+                        if (xreq.status == 200) {
+
+                        }
+                        var resp = xreq.responseText
+                        var hamsterz = JSON.parse(resp)
+                        var html = "<table>"
+                        html += "<thead>"
+                        html += "<tr>"
+                        html += "    <th>Id</th>"
+                        html += "    <th>Name</th>"
+                        html += "    <th>Alter</th>"
+                        html += "    <th>Farbe</th>"
+                        html += "    <th>Geschlecht</th>"
+                        html += "</tr>"
+                        html += "</thead>"
+                        for (var h in hamsterz) {
+                            html += `<tr style=\"background-color: ${clr_mapper[hamsterz[h].Farbe]}; color: ${gen_mapper[hamsterz[h].Geschlecht]}\">`
+                            html += `<td>${hamsterz[h].Id}</td>`
+                            html += `<td>${hamsterz[h].Name}</td>`
+                            html += `<td>${hamsterz[h].Alter}</td>`
+                            html += `<td>${hamsterz[h].Farbe}</td>`
+                            html += `<td>${hamsterz[h].Geschlecht}</td>`
+                            html += "</tr>"
+                        }
+                        html += "</table>"
+                        div_hliste.innerHTML = html
+                    }
+                }
+                xreq.send()
+            })
+
+
         }
 
     </script>

@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <button id="laden">Lade Daten</button>
+    <div id="daten"></div>
+
+
+    <script>
+        $().ready(function () {
+            $("#laden").click(function () {
+                $("#daten").load("#GetText.cshtml")
+            })
+        })
+
+    </script>
+
+</body>
+</html>
