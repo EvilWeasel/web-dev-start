@@ -85,13 +85,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="HtmlPage1.html" />
+    <Content Include="HtmlPage2.html" />
+    <Content Include="HtmlPage3.html" />
+    <Content Include="jquery.html" />
+    <Content Include="MyModule.js" />
+    <Content Include="GetText.cshtml" />
+    <Content Include="GetHamster.cshtml" />
+    <None Include="Scripts\jquery-3.6.0.intellisense.js" />
+    <Content Include="Scripts\FormPerson.html" />
+    <Content Include="Scripts\jquery-3.6.0.js" />
+    <Content Include="Scripts\jquery-3.6.0.min.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
     <Content Include="Web.config" />
+    <Content Include="WebPage4.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Hamster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.6.0.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -100,6 +117,7 @@
     </None>
     <Content Include="WebPage1.cshtml" />
     <Content Include="WebPage2.cshtml" />
+    <Content Include="WebPage3.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

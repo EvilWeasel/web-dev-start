@@ -1,0 +1,8 @@
+﻿@{ 
+
+    string s = "Diese Daten kommen vom Server";
+    //string xml = "<Person><Vorname>Horst</Vorname></Person>";
+    Response.ContentType = "text/plain";
+    Response.StatusCode = 200;
+    Response.Write(s);
+}

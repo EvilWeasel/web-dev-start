@@ -1,0 +1,10 @@
+﻿@using JS001;
+@{ 
+
+    Hamster h = HamsterRepository.GetHamster().FirstOrDefault(x => x.Id == 2);
+
+    string json = Json.Encode(h);
+    Response.ContentType = "application/json";
+    Response.StatusCode = (int)HttpStatusCode.OK;
+    Response.Write(json);
+}

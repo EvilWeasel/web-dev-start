@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+
+    <script>
+
+        class Person {
+            constructor(name, alter, geschlecht) {
+                this.Name = name
+                this.Alter = alter
+                this.Geschlecht = geschlecht
+            }
+            toString() {
+                return (this.Geschlecht == "m" ? "Herr " : "Frau ") + this.Name + " ist " + this.Alter + " Tage alt."
+            }
+            geburtstag() {
+                this.Alter += 1
+            }
+
+        }
+
+        function Hamster(name, farbe, alter, geschlecht) {
+            this.Name = name
+            this.Farbe = farbe
+            this.Alter = alter
+            this.Geschlecht = geschlecht
+            this.toString = function () {
+                return (this.Geschlecht == "m" ? "Herr " : "Frau ") + this.Name + " Hamster ist " + this.Alter + " Tage alt und ist " + this.Farbe
+            }
+        }
+
+        function test01() {
+            var h1 = new Hamster("Kurt", "Rot", 45, "m")
+            var h2 = new Hamster("Hildegard", "Grün", 74, "w")
+            h2.geburtstag = function () { this.Alter += 1 }
+            console.log(h1.toString())
+            console.log(h2.toString())
+            h2.geburtstag()
+            console.log(h2.toString())
+        }
+
+        function test02() {
+            let p1 = new Person("Hans", 50, "m")
+            p1.geburtstag()
+            console.log(p1.toString());
+            for (var prop in p1) {
+                console.log("Property " + prop + "=> " + p1[prop]);
+            }
+            if ("Name" in p1) {
+                console.log("p1 hat einen Namen: " + p1.name);
+            }
+        }
+
+        function test03(x) {
+            for (var prop in x) {
+                console.log("Property " + prop + "=> " + x[prop]);
+            }
+        }
+
+        test01()
+        test02()
+        test03(history)
+    </script>
+
+</body>
+</html>

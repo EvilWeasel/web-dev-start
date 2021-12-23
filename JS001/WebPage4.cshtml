@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX</title>
+</head>
+<body>
+    <h1>AJAX</h1>
+
+    <button id="laden01">Lade Daten 01</button>
+    <div id="daten01"></div>
+    <br />
+    <button id="laden02">Lade JSON</button>
+    <div id="daten02"></div>
+
+    <script>
+
+        document.body.onload = function () {
+
+            var dat01 = document.getElementById("daten01")
+            var lad01 = document.getElementById("laden01")
+            var dat02 = document.getElementById("daten02")
+            var lad02 = document.getElementById("laden02")
+            // dat01.innerHTML = "STARTUP"
+            //var text = document.createTextNode("Start")
+            //dat01.appendChild(text)
+            dat01.innerHTML = "<b>STARTUP</b>"
+
+            lad01.addEventListener("click", function () {
+                var xreq = new XMLHttpRequest()
+
+                xreq.open("get", "GetText.cshtml", true)
+
+                xreq.onreadystatechange = function () {
+
+                    if (xreq.readyState == 4) {
+                        if (xreq.status == 200) {
+
+                            var daten_vom_server = xreq.responseText
+                            //daten_vom_server.querySelector("//Person[id='p1']")
+                            dat01.innerHTML = daten_vom_server
+                        }
+                    }
+
+                }
+                //xreq.setRequestHeader("Content-Type")
+                xreq.send()
+            })
+
+            lad02.addEventListener("click", function () {
+                let xreq = new XMLHttpRequest()
+                xreq.open("get", "GetHamster.cshtml", true)
+                xreq.onreadystatechange = function () {
+                    if (xreq.readyState == 4 && xreq.status == 200) {
+                        var resp = xreq.responseText
+                        var ham = JSON.parse(resp)
+                        var html = "<ul>"
+                        html += "<li>" + ham.Id + "</li>"
+                        html += "<li>" + ham.Name + "</li>"
+                        html += "<li>" + ham.Alter + "</li>"
+                        html += "<li>" + ham.Farbe + "</li>"
+                        html += "<li>" + ham.Geschlecht + "</li>"
+                        html += "</ul>"
+                        dat02.innerHTML = html
+
+                    }
+                }
+                xreq.send()
+            })
+        }
+
+    </script>
+</body>
+</html>

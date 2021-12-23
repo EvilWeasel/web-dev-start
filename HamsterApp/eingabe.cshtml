@@ -88,12 +88,12 @@
     <div>
         @if (!ok)
         {
-            <form method="post">
+            <form method="post" onsubmit="return check()">
                 <!-- -->
                 <div class="ctrlgroup">
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="name" value="@name" placeholder="Horst" />
-                    <div class="error">@errors["Name"]</div>
+                    <input type="text" id="name" name="name" value="@name" placeholder="Horst" onblur="isEmpty(this)"/>
+                    <div class="error" id="err_name"></div>
                 </div>
 
 
@@ -114,6 +114,8 @@
                                 }*@
                         }
                     </select>
+                    <span class="error" id="err_geschlecht"></span>
+
                 </div>
 
                 <div class="ctrlgroup">
@@ -124,6 +126,8 @@
                             <option value="@((int)f)" @(((int)f).ToString() == farbe ? "selected" : "")>@f</option>
                         }
                     </select>
+                    <span class="error" id="err_farbe"></span>
+
                 </div>
 
 
@@ -131,7 +135,7 @@
                 <div class="ctrlgroup">
                     <label for="alter">Alter</label>
                     <input type="number" id="alter" name="alter" value="@alter" />
-                    <div class="error">@errors["Alter"]</div>
+                    <div class="error" id="err_alter">@errors["Alter"]</div>
                 </div>
 
 
@@ -147,6 +151,33 @@
         {
             <p>DATEN WURDEN GESPEICHERT</p>
         }
+
+        <script>
+            function check() {
+                ok = true
+
+                let elems = [
+                    document.getElementById("name"),
+                    document.getElementById("geschlecht"),
+                    document.getElementById("farbe"),
+                    document.getElementById("alter")
+                ]
+                for (var x in elems) {
+                    if (elems[x].value == "") {
+                        ok = false
+                        err = document.getElementById("err_" + elems[x].name)
+                        err.innerHTML = "Pflichtfeld!"
+                    }
+                }
+                return ok
+
+            }
+
+            function isEmpty(elem) {
+                err = document.getElementById("err_" + elem.name)
+                err.innerHTML = "c:"
+            }
+        </script>
     </div>
 </body>
 </html>

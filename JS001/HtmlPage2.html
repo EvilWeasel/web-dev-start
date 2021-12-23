@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="MyModule.js"></script>
+</head>
+<body>
+    
+
+    <script>
+        function test1() {
+
+            MyModule.consolelog(arguments)
+            console.log("Länge von arguments: " + arguments.length)
+            for (var i = 0; i < arguments.length; i++) {
+                console.log("arg[" + i + "] => " + arguments[i]);
+            }
+            console.log("FOREACH")
+            for (var x in arguments) {
+                console.log("arg[" + x + "] => " + arguments[x]);
+            }
+        }
+
+        test1(1, 2, 3, 4, 5)
+        test1(0,0,7)
+    </script>
+
+</body>
+</html>

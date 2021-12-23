@@ -2,55 +2,79 @@
 <html>
 <head>
     <title>Rechner</title>
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <table>
         <tr>
-            <td><input readonly id="zwischenergebnis" value="0"/></td>
+            <td colspan="4"><input readonly id="int_result" value="0" /></td>
         </tr>
         <tr>
-            <td><input readonly id="ergebnis" value="0"/></td>
+            <td colspan="4"><input readonly id="result" value="0" /></td>
         </tr>
         <tr>
-            <td><button onclick="btn_clicked(this.value)" id="btn_7" value="7">7</button></td>
-            <td><button onclick="btn_clicked(this.value)" id="btn_8" value="8">8</button></td>
-            <td><button onclick="btn_clicked(this.value)" id="btn_9" value="9">9</button></td>
-            <td><button onclick="btn_clicked(this.value)" id="btn_mult" value="*">*</button></td>
+            <td><button onclick="btn_clicked(this)" id="btn_7" value="7">7</button></td>
+            <td><button onclick="btn_clicked(this)" id="btn_8" value="8">8</button></td>
+            <td><button onclick="btn_clicked(this)" id="btn_9" value="9">9</button></td>
+            <td><button onclick="btn_clicked(this)" id="btn_mult" value="*">*</button></td>
         </tr>
         <tr>
-            <td><button onclick="btn_clicked(this.value)" id="btn_4" value="4">4</button></td>
-            <td><button onclick="btn_clicked(this.value)" id="btn_5" value="5">5</button></td>
-            <td><button onclick="btn_clicked(this.value)" id="btn_6" value="6">6</button></td>
-            <td><button onclick="btn_clicked(this.value)" id="btn_minus" value="-">-</button></td>
+            <td><button onclick="btn_clicked(this)" id="btn_4" value="4">4</button></td>
+            <td><button onclick="btn_clicked(this)" id="btn_5" value="5">5</button></td>
+            <td><button onclick="btn_clicked(this)" id="btn_6" value="6">6</button></td>
+            <td><button onclick="btn_clicked(this)" id="btn_minus" value="-">-</button></td>
         </tr>
         <tr>
-            <td><button onclick="btn_clicked(this.value)" id="btn_1" value="1">1</button></td>
-            <td><button onclick="btn_clicked(this.value)" id="btn_2" value="2">2</button></td>
-            <td><button onclick="btn_clicked(this.value)" id="btn_3" value="3">3</button></td>
-            <td><button onclick="btn_clicked(this.value)" id="btn_plus" value="+">+</button></td>
+            <td><button onclick="btn_clicked(this)" id="btn_1" value="1">1</button></td>
+            <td><button onclick="btn_clicked(this)" id="btn_2" value="2">2</button></td>
+            <td><button onclick="btn_clicked(this)" id="btn_3" value="3">3</button></td>
+            <td><button onclick="btn_clicked(this)" id="btn_plus" value="+">+</button></td>
         </tr>
         <tr>
-            <td><button onclick="btn_clicked(this.value)" id="btn_0" value="0">0</button></td>
-            <td><button onclick="btn_clicked(this.value)" id="btn_comma" value=".">.</button></td>
-            <td><button onclick="btn_clear_clicked" id="btn_clear">clear</button></td>
-            <td><button onclick="btn_equals_clicked" id="btn_equals">=</button></td>
+            <td><button onclick="btn_clicked(this)" id="btn_0" value="0">0</button></td>
+            <td><button onclick="btn_clicked(this)" id="btn_comma" value=".">.</button></td>
+            <td><button onclick="btn_clear_clicked(this)" id="btn_clear">clear</button></td>
+            <td><button onclick="btn_equals_clicked(this)" id="btn_equals">=</button></td>
         </tr>
     </table>
 
     <script>
         var e = ""
-        function btn_clicked(val) {
-            e += val
-            if (val == parseInt(val)) {
-                ergebnis.value += val
+        var operand_set = false
+        function btn_clicked(sender) {
+            var x = sender.value
+            if (is_noop(x)) {
+                if (result.value == 0) {
+                    result.value = x
+                }
+                else {
+                    result.value += x
+                }
+                e += x
+            }
+            else {
+                e += x
+                int_result.value = result.value
+                result.value = 0
             }
         }
-        function btn_clear_clicked() {
+        function btn_clear_clicked(sender) {
             e = ""
-            ergebnis.value = ""
+            result.value = 0
+            int_result.value = 0
         }
-        function btn_equals_clicked() {
-            ergebnis.value = eval(e)
+        function btn_equals_clicked(sender) {
+            result.value = eval(e)
+            int_result.value = 0
+        }
+        function is_noop(val) {
+            let operators = ['+', '-', '*', '/']
+            if (operators.indexOf(val) >= 0) {
+                return false
+            }
+            else {
+                return true
+            }
         }
     </script>
 </body>

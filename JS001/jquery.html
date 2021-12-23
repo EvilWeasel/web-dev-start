@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Scripts/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <p>ABSATZ 1</p>
+    <p>ABSATZ 2</p>
+    <p>ABSATZ 3</p>
+    <p>ABSATZ 4</p>
+
+    <script>
+
+        $().ready(function () {
+            $("p").click(function (o) {
+                var x = this
+                $(x).slideToggle(1000)
+                setTimeout(function () { $(x).slideToggle(1000)}, 2000)
+            })
+        })
+    </script>
+</body>
+</html>

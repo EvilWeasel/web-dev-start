@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <form action="ausw.cshtml" method="post" onsubmit="return check()">
+        <div>
+            <label>Vorname</label>
+            <input type="text" id="vorname" name="vorname" />
+            <span class="error" id="err_vorname"></span>
+        </div>
+        <input type="submit" />
+    </form>
+
+
+
+    <script>
+        function check() {
+            ok = true
+            var vn = document.getElementById("vorname")
+            if (vn.value == "") {
+                ok = false
+                err_vorname.innerHTML = "PFLICHTFELD"
+            }
+            return ok
+        }
+    </script>
+
+</body>
+</html>
