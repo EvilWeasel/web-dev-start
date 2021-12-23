@@ -1,10 +1,32 @@
 ﻿@using JS001;
-@{ 
+@{
+    try
+    {
+        int id = Convert.ToInt32(Request["id"]);
+        Hamster h = HamsterRepository.GetHamster().FirstOrDefault(x => x.Id == id);
+        if (h != null)
+        {
 
-    Hamster h = HamsterRepository.GetHamster().FirstOrDefault(x => x.Id == 2);
+            string json = Json.Encode(h);
+            Response.ContentType = "application/json";
+            Response.StatusCode = (int)HttpStatusCode.OK;
+            Response.Write(json);
+        }
+        else
+        {
+            Response.ContentType = "application/json";
+            Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+            var error = new { Error = "Hamster ID=" + id + " nicht gefunden" };
+            Response.Write(Json.Encode(error));
+        }
 
-    string json = Json.Encode(h);
-    Response.ContentType = "application/json";
-    Response.StatusCode = (int)HttpStatusCode.OK;
-    Response.Write(json);
+    }
+    catch (Exception e)
+    {
+        Response.ContentType = "application/json";
+        Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+        var error = new { Error = e.Message };
+        Response.Write(Json.Encode(error));
+        //Response.Write("\"Error\" : \"" + e.Message + "\"}");
+    }
 }

@@ -92,6 +92,7 @@
     <Content Include="MyModule.js" />
     <Content Include="GetText.cshtml" />
     <Content Include="GetHamster.cshtml" />
+    <Content Include="GetAllTheHamsterz.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\FormPerson.html" />
     <Content Include="Scripts\jquery-3.6.0.js" />

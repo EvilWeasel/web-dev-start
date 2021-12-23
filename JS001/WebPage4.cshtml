@@ -10,6 +10,7 @@
     <div id="daten01"></div>
     <br />
     <button id="laden02">Lade JSON</button>
+    <input type="number" id="nr02" max="5" min="1" value="1" />
     <div id="daten02"></div>
 
     <script>
@@ -20,6 +21,7 @@
             var lad01 = document.getElementById("laden01")
             var dat02 = document.getElementById("daten02")
             var lad02 = document.getElementById("laden02")
+            var nr02 = document.getElementById("nr02")
             // dat01.innerHTML = "STARTUP"
             //var text = document.createTextNode("Start")
             //dat01.appendChild(text)
@@ -48,20 +50,29 @@
 
             lad02.addEventListener("click", function () {
                 let xreq = new XMLHttpRequest()
-                xreq.open("get", "GetHamster.cshtml", true)
+                qs = "id=" + nr02.value
+                xreq.open("get", "GetHamster.cshtml?" + qs, true)
                 xreq.onreadystatechange = function () {
-                    if (xreq.readyState == 4 && xreq.status == 200) {
-                        var resp = xreq.responseText
-                        var ham = JSON.parse(resp)
-                        var html = "<ul>"
-                        html += "<li>" + ham.Id + "</li>"
-                        html += "<li>" + ham.Name + "</li>"
-                        html += "<li>" + ham.Alter + "</li>"
-                        html += "<li>" + ham.Farbe + "</li>"
-                        html += "<li>" + ham.Geschlecht + "</li>"
-                        html += "</ul>"
-                        dat02.innerHTML = html
+                    if (xreq.readyState == 4) {
+                        if (xreq.status == 200) {
 
+                            var resp = xreq.responseText
+                            var ham = JSON.parse(resp)
+                            var html = "<ul>"
+                            html += "<li>" + ham.Id + "</li>"
+                            html += "<li>" + ham.Name + "</li>"
+                            html += "<li>" + ham.Alter + "</li>"
+                            html += "<li>" + ham.Farbe + "</li>"
+                            html += "<li>" + ham.Geschlecht + "</li>"
+                            html += "</ul>"
+                            dat02.innerHTML = html
+
+                        }
+                        else {
+                            var resp = xreq.responseText
+                            var err = JSON.parse(resp)
+                            dat02.innerHTML = "Error: " + xreq.status + " : " + err.Error
+                        }
                     }
                 }
                 xreq.send()

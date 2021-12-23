@@ -22,6 +22,7 @@ namespace JS001
             yield return new Hamster() { Id = 2, Name = "Winfried", Alter = 16, Farbe = "Gelb", Geschlecht = "m" };
             yield return new Hamster() { Id = 3, Name = "Hans", Alter = 2, Farbe = "Weiß", Geschlecht = "w" };
             yield return new Hamster() { Id = 4, Name = "Angela", Alter = 3, Farbe = "Grün", Geschlecht = "w" };
+            yield return new Hamster() { Id = 5, Name = "Angela", Alter = 3, Farbe = "Grün", Geschlecht = "w" };
         }
     }
 }

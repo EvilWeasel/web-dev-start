@@ -1,0 +1,9 @@
+﻿@using JS001;
+
+@{ 
+    List<Hamster> hliste = HamsterRepository.GetHamster().ToList();
+    string json = Json.Encode(hliste);
+    Response.ContentType = "application/json";
+    Response.StatusCode = (int)HttpStatusCode.OK;
+    Response.Write(json);
+}
